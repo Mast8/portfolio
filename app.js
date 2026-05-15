@@ -8,9 +8,7 @@
         })
     });
     
-    })();
-
-
+})();
 
 //change color theme
 document.querySelector(".theme-btn").addEventListener("click", () => {
