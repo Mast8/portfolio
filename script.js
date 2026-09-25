@@ -35,10 +35,10 @@
             {
                 id: 1,
                 title: "Income tracker",
-                category: "fullstack",
+                category: "Storage",
                 image: "img/expe.png",
-                summary: "Web list of incomes and expenses",
-                description: "Built for high-volume enterprise metric monitoring. Utilizes",
+                summary: "Intuitive web app for logging income and tracking daily spending.",
+                description: "An intuitive expense tracking platform that helps users monitor cash flow, balance income against spending, and keep accurate financial records.",
                 tags: ["React", "TypeScript", "Node.js"],
                 demoUrl: "https://mast8.github.io/expense-helper/",
                 githubUrl: "https://github.com/Mast8/expense-helper"
@@ -47,35 +47,35 @@
             {
                 id: 2,
                 title: "Chrono-room",
-                category: "ai",
+                category: "Storage",
                 image: "img/grades.png",
-                summary: "Generative AI Web App for real-time canvas image editing.",
-                description: "Leverages cloud inference models to offer prompt-based asset generation, layer composition, and automated canvas enhancement.",
-                tags: ["Next.js", "Python", "FastAPI", "Tailwind"],
+                summary: "Chrome extension for building courses, tracking graded tasks, and calculating GPAs via browser storage.",
+                description: "CronoRoom is a browser extension designed to help students organize their academic life directly from Chrome. Users can set up custom courses, record graded assignments, and track course averages and cumulative GPA—all stored securely on the client side using browser extension storage.",
+                tags: ["JavaScript", "CSS", "Extension", "Local Storage"],
                 demoUrl: "https://github.com/Mast8/chrono-room",
                 githubUrl: "https://mast8.github.io/chrono-room/"
             },
             {
                 id: 3,
-                title: "Aether UI Design System",
+                title: "Movie Stats",
                 category: "frontend",
-                image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?fit=crop&w=800&q=80",
-                summary: "Accessible dark-mode component library with custom animations.",
-                description: "Comprehensive React UI toolkit engineered for accessibility (WCAG AAA compliance), complete with interactive storybooks and theme customization.",
-                tags: ["React", "Tailwind CSS", "Framer Motion"],
-                demoUrl: "#",
-                githubUrl: "#"
+                image: "img/moviesta.jpg",
+                summary: "Interactive movie data table with custom sorting, theme options, and dark mode.",
+                description: "Interactive movie data featuring dynamic column sorting, customizable visual themes, background styling, and light/dark modes.",
+                tags: ["JavaScript", "CSS"],
+                demoUrl: "https://mast8.github.io/movie-stat/",
+                githubUrl: "https://github.com/Mast8/movie-stat"
             },
             {
                 id: 4,
-                title: "Crypta DeFi Portfolio",
-                category: "fullstack",
-                image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?fit=crop&w=800&q=80",
-                summary: "Decentralized finance portfolio manager with gas estimation tools.",
-                description: "Tracks multi-chain token balances and historical performance analytics using Web3 providers and automated price aggregation.",
-                tags: ["Ethers.js", "React", "GraphQL"],
-                demoUrl: "#",
-                githubUrl: "#"
+                title: "To do",
+                category: "Storage",
+                image: "img/todo.png",
+                summary: "An intuitive to-do list with built-in progress tracking and completion metrics.",
+                description: "A streamlined task management application that helps users organize daily to-dos while tracking personal productivity through completion statistics and visual progress metrics.",
+                tags: ["Javascript", "Local storage", "CSS", "Validation"],
+                demoUrl: "https://mast8.github.io/j-todo/",
+                githubUrl: "https://github.com/Mast8/j-todo"
             }
         ];
 
@@ -139,15 +139,11 @@
                 : projectsData.filter(p => p.category === filter);
 
             grid.innerHTML = filtered.map(project => `
-                <div class="glass-panel rounded-2xl overflow-hidden glass-panel-hover transition-all flex flex-col group border border-white/5">
+                <div onclick="openModal(${project.id})" class="glass-panel rounded-2xl overflow-hidden glass-panel-hover transition-all flex flex-col group border border-white/5 cursor-pointer">
                     <div class="relative overflow-hidden aspect-video">
                         <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                              onerror="this.src='https://placehold.co/800x450/131b2e/ffffff?text=Project+Preview'">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                            <button onclick="openModal(${project.id})" class="p-3 rounded-full bg-brand-600 text-white hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-eye text-sm"></i>
-                            </button>
-                        </div>
+                        
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
@@ -158,9 +154,9 @@
                             <div class="flex flex-wrap gap-2 mb-4">
                                 ${project.tags.map(tag => `<span class="text-[10px] font-mono px-2 py-1 rounded bg-white/5 text-brand-cyan">${tag}</span>`).join('')}
                             </div>
-                            <button onclick="openModal(${project.id})" class="text-xs font-mono text-brand-500 hover:text-brand-cyan flex items-center gap-1 transition-colors">
+                            <span class="text-xs font-mono text-brand-500 hover:text-brand-cyan flex items-center gap-1 transition-colors">
                                 View Details <i class="fa-solid fa-arrow-right"></i>
-                            </button>
+                            </span>
                         </div>
                     </div>
                 </div>
