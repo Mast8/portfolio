@@ -27,7 +27,9 @@
             ],
             tools: [
                 { name: "Git", level: 92, icon: "fa-brands fa-git-alt" },
-                { name: "Figma UI Design", level: 85, icon: "fa-brands fa-figma" }
+                { name: "Figma UI Design", level: 85, icon: "fa-brands fa-figma" },
+                { name: "Linux", level: 86, icon: "fa-brands fa-linux" },
+                
             ]
         };
 
